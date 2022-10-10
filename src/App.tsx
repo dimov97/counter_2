@@ -5,6 +5,7 @@ import {CounterSettings} from "./CounterSettings/CounterSettings";
 
 function App() {
     let [count, setCount] = useState(0)
+    let [error, setError] = useState<string|null>(null)
     let [maxValue,setMaxValue] = useState('5')
     let [minValue, setMinValue] = useState('0')
 
@@ -47,6 +48,8 @@ function App() {
                          reset={reset}
                          maxValue={maxValue}
                          minValue={minValue}
+                         error={error}
+                         setError={setError}
 
                 />
             </div>
