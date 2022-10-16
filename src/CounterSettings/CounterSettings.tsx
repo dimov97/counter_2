@@ -21,7 +21,7 @@ export const CounterSettings: React.FC<CounterSettingsType> = ({
     setMessage,
     message
                                                                }) => {
-    let disable = message !== 'Enter values'
+    let disable = message !== 'enter value'
     const red = +minValue > +maxValue || +maxValue <= 0 || +minValue < 0 || +minValue === +maxValue ? {border: 'red 2px solid'} : {border: ''}
     return (
         <div className={s.counterSettings}>
@@ -31,9 +31,9 @@ export const CounterSettings: React.FC<CounterSettingsType> = ({
                     <input style={red} value={maxValue} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         let newMaxValue = e.currentTarget.value
                         setMaxValue(newMaxValue)
-                        setMessage('Enter values')
+                        setMessage('enter value')
                         if (+newMaxValue<= 0||+minValue>=+newMaxValue) {
-                            setMessage('error')
+                            setMessage('error value')
                         }
                     }} type="number"/>
                 </div>
@@ -42,9 +42,9 @@ export const CounterSettings: React.FC<CounterSettingsType> = ({
                     <input style={red} value={minValue} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         let newMinValue = e.currentTarget.value
                         setMinValue(newMinValue)
-                        setMessage('Enter values')
+                        setMessage('enter value')
                         if (+newMinValue< 0||+newMinValue>=+maxValue) {
-                            setMessage('error')
+                            setMessage('error value')
                         }
                     }} type="number"/>
                 </div>
