@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Button} from "../Button/Button";
 import s from './Counter.module.css'
 
@@ -16,7 +16,7 @@ export const Counter: React.FC<CounterType> = ({count, inc, reset,maxValue,minVa
 
     const disableInc = count === +maxValue||+maxValue<= 0||+minValue<0||+minValue===+maxValue||message==='enter value'
     const disableReset = count === +minValue||+maxValue<= 0||+minValue<0||+minValue===+maxValue||message==='enter value'
-    const red = message === 'error'||count===+maxValue ? {color: 'red'} : {color: ''}
+    const red = message === 'error value'||count===+maxValue ? {color: 'red'} : {color: ''}
     return (
         <div className={s.counter}>
             <div style={red} className={s.screen}>{message ||count}</div>
