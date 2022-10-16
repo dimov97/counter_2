@@ -5,7 +5,7 @@ import {CounterSettings} from "./CounterSettings/CounterSettings";
 
 function App() {
     let [count, setCount] = useState(0)
-    let [error, setError] = useState<string|null>(null)
+    let [message, setMessage] = useState<string>('')
     let [maxValue,setMaxValue] = useState('5')
     let [minValue, setMinValue] = useState('0')
 
@@ -33,6 +33,7 @@ function App() {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('minValue', JSON.stringify(minValue))
         setCount(+minValue)
+        setMessage('')
     }
     return (
         <div className="App">
@@ -42,14 +43,17 @@ function App() {
                                   minValue={minValue}
                                   setMinValue={setMinValue}
                                   setButton={setButton}
+                                  message={message}
+                                  setMessage={setMessage}
+
                 />
                 <Counter count={count}
                          inc={inc}
                          reset={reset}
                          maxValue={maxValue}
                          minValue={minValue}
-                         error={error}
-                         setError={setError}
+                         message={message}
+                         setMessage={setMessage}
 
                 />
             </div>

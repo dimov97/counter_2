@@ -8,26 +8,26 @@ type CounterType = {
     reset: () => void
     maxValue:string
     minValue:string
-    error:string|null
-    setError:(s:string)=>void
+    message:string|null
+    setMessage:(s:string)=>void
 }
 
-export const Counter: React.FC<CounterType> = ({count, inc, reset,maxValue,minValue,error,setError}) => {
-    useEffect(()=>{
+export const Counter: React.FC<CounterType> = ({count, inc, reset,maxValue,minValue,message,setMessage}) => {
+    /*useEffect(()=>{
         if (+maxValue<= 0||+minValue<0||+minValue===+maxValue||+maxValue<+minValue) {
-            setError('error')
+            setMessage('error')
         } else {
-            setError('')
+            setMessage('')
         }
 
-    },[maxValue,minValue])
+    },[maxValue,minValue])*/
 
     const disableInc = count === +maxValue||+maxValue<= 0||+minValue<0||+minValue===+maxValue
     const disableReset = count === +minValue||+maxValue<= 0||+minValue<0||+minValue===+maxValue
-    const red = count === +maxValue||+maxValue<= 0||+minValue<0||+minValue===+maxValue||+maxValue<+minValue ? {color: 'red'} : {color: ''}
+    const red = message === 'error' ? {color: 'red'} : {color: ''}
     return (
         <div className={s.counter}>
-            <div style={red} className={s.screen}>{error ||count}</div>
+            <div style={red} className={s.screen}>{message ||count}</div>
 
             <div className={s.buttonWrapper}>
                 <Button title={'inc'} callback={inc} disabled={disableInc}/>
