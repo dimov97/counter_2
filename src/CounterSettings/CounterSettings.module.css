@@ -12,27 +12,6 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-.setting {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.setting p {
-    color: #8bddf9;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 10px 60px 10px 0;
-}
-.setting input {
-    border-radius: 5px;
-    height: 20px;
-    width: 60px;
-    border: 2px solid #8bddf9;
-    outline: none;
-    text-align: center;
-    font-size: 17px;
-
-}
 .buttonWrapper {
     display: flex;
     justify-content: space-around;
